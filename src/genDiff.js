@@ -1,17 +1,10 @@
-export default (data1, data2) => {
-  const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
-  const result = keys.map((key) => {
-    if (!Object.hasOwn(data2, key)) {
-      return `  - ${key}: ${data1[key]}`;
-    }
-    if (!Object.hasOwn(data1, key)) {
-      return `  + ${key}: ${data2[key]}`;
-    }
-    if (data1[key] !== data2[key]) {
-      return `  - ${key}: ${data1[key]}\n  + ${key}: ${data2[key]}`;
-    }
-    return `    ${key}: ${data1[key]}`;
-  });
+import parse from './parser.js';
+import buildDiff from "./buildDiff.js";
+import stylish from "./formatters/stylish.js";
 
-  return `{\n${result.join('\n')}\n}`;
+const genDiff = (data1, data2) => {
+  const diff = buildDiff(parse(data1), parse(data2));
+  return stylish(diff);
 };
+
+export default genDiff;
