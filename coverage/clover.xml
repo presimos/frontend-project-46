@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1742911699596" clover="3.2.0">
-  <project timestamp="1742911699596" name="All files">
+<coverage generated="1742913855469" clover="3.2.0">
+  <project timestamp="1742913855469" name="All files">
     <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4" elements="26" coveredelements="26" complexity="0" loc="16" ncloc="16" packages="1" files="3" classes="3"/>
     <file name="genDiff.js" path="/home/presimos/hexlet_projects/frontend-project-46/src/genDiff.js">
       <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
