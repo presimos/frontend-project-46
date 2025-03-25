@@ -1,7 +1,5 @@
-import _ from 'lodash';
-
 export default (data1, data2) => {
-  const keys = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
+  const keys = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
   const result = keys.map((key) => {
     if (!Object.hasOwn(data2, key)) {
       return `  - ${key}: ${data1[key]}`;

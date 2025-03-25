@@ -20,4 +20,18 @@ test('gendiff JSON files', () => {
 }`
 
   expect(gendiff(file1, file2)).toBe(expected);
-})
+});
+
+test('gendiff YAML files', () => {
+  const file1 = getFixturesPath('file1.yml');
+  const file2 = getFixturesPath('file2.yml');
+  const expected = `{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}`
+  expect(gendiff(file1, file2)).toBe(expected);
+});

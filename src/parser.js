@@ -1,9 +1,16 @@
-import fs from 'fs';
 import path from 'path';
-import process from 'process';
+import { readFileSync } from 'fs';
+import yaml from 'js-yaml';
 
 export default (filepath) => {
-  const absolutePath = path.resolve(process.cwd(), filepath);
-  const fileData = fs.readFileSync(absolutePath, 'utf-8');
-  return JSON.parse(fileData);
+  const extname = path.extname(filepath).toLowerCase();
+  const data = readFileSync(filepath, 'utf-8');
+
+  switch (extname) {
+    case '.json':
+      return JSON.parse(data);
+    case '.yml':
+    case '.yaml':
+      return yaml.load(data);
+  }
 };
