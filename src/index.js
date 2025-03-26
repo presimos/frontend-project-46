@@ -1,5 +1,5 @@
 import parse from './parser.js';
-import buildDiff from "./buildDiff.js";
+import buildDiff from './buildDiff.js';
 import formatDiff from './formatters/index.js';
 
 const genDiff = (data1, data2, format = 'stylish') => {

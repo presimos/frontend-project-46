@@ -29,6 +29,8 @@ const formatStylish = (diff, depth = 1) => {
         return `${getIndent(depth)}  ${node.key}: ${formatValue(node.value, depth)}`;
       case 'nested':
         return `${getIndent(depth)}  ${node.key}: {\n${formatStylish(node.children, depth + 1)}\n${getBracketIndent(depth)}  }`;
+      default:
+        return 0;
     }
   });
 

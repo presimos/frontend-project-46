@@ -7,35 +7,6 @@ const __dirname = path.dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-// test('gendiff JSON files', () => {
-//   const file1 = getFixturesPath('file1.json');
-//   const file2 = getFixturesPath('file2.json');
-//   const expected = `{
-//   - follow: false
-//     host: hexlet.io
-//   - proxy: 123.234.53.22
-//   - timeout: 50
-//   + timeout: 20
-//   + verbose: true
-// }`
-
-//   expect(gendiff(file1, file2)).toBe(expected);
-// });
-
-// test('gendiff YAML files', () => {
-//   const file1 = getFixturesPath('file1.yml');
-//   const file2 = getFixturesPath('file2.yml');
-//   const expected = `{
-//   - follow: false
-//     host: hexlet.io
-//   - proxy: 123.234.53.22
-//   - timeout: 50
-//   + timeout: 20
-//   + verbose: true
-// }`
-//   expect(gendiff(file1, file2)).toBe(expected);
-// });
-
 test('gendiff JSON nested', () => {
   const file1 = getFixturePath('file1.json');
   const file2 = getFixturePath('file2.json');
@@ -82,7 +53,7 @@ test('gendiff JSON nested', () => {
         }
         fee: 100500
     }
-}`
+}`;
 
   expect(genDiff(file1, file2)).toBe(expected);
 });
@@ -151,7 +122,7 @@ Property 'common.setting6.ops' was added with value: 'vops'
 Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
-Property 'group3' was added with value: [complex value]`
+Property 'group3' was added with value: [complex value]`;
   expect(genDiff(file1, file2, 'plain')).toBe(expected);
 });
 
@@ -168,7 +139,7 @@ Property 'common.setting6.ops' was added with value: 'vops'
 Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
-Property 'group3' was added with value: [complex value]`
+Property 'group3' was added with value: [complex value]`;
   expect(genDiff(file1, file2, 'plain')).toBe(expected);
 });
 
