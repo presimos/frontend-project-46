@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import yaml from 'js-yaml';
 
 export default (filepath) => {
-  const extname = path.extname(filepath).toLowerCase();
+  const extname = path.extname(filepath);
   const data = readFileSync(filepath, 'utf-8');
 
   switch (extname) {
